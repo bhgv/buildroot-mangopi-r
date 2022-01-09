@@ -1,3 +1,48 @@
+##changes:
+
+###added:
+
+`gnash` (gnu-Flash up to v7) as an engine to build GUIs.
+to coomunicate with outside-flash world added plugin `USocketIO` (a regular streaming Unix-socket).
+
+to create:
+```
+var s = new USocketIO("");
+
+var r = s.socket("path_name_of_sock");
+// r is a result here.
+```
+
+to begin listen (server side):
+```
+s.listen();
+```
+
+to connect (client side):
+```
+s.connect();
+```
+
+to read/write:
+```
+var r = s.read(); // r is string with just read data or boolean false if none read
+
+s.write("a string to write to the socket);
+```
+
+to close:
+```
+s.close();
+```
+
+read, write, close work with both server and client sockets.
+
+
+defconfig:
+```
+make widora_mangopi_r3_gnash_defconfig
+```
+
 # Buildroot Package for Allwinner SIPs
 Opensource development package for Allwinner F1C100s & F1C200s
 
